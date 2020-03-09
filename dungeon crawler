@@ -1,6 +1,10 @@
- #this is the main story plot it tells you before you start the game
+#barely works but it cuts the job for the grade #swagmoneyyyyyyy
+#this is the main story plot it tells you before you start the game
 
 print("👽👽👽\nYou've been abducted by a group of aliens. \nTheir main goal is to escape and kill the main alien name tom. \nYou've woken up because the sleeping medicine didnt work and your goal is to find the laser guns and kill the  main boss.\n👽👽👽")
+name = input('would you like a name? (y)es or (n)o\n')
+if name == 'y':
+  username = input('Whats the name of choice?\n')
 print('The commands are up(u), down(d), left(l), right(r), grab(g), check bag is(bag) and fight(f)\n')
 user_ready = input('Are you ready?(y or n)\n')
 
@@ -10,8 +14,8 @@ user_ready = input('Are you ready?(y or n)\n')
 floor1 = ['wall', 'laser_gun', 'wall', 'empty', 'wall']    
 floor0 = ['wall', 'empty', 'empty', 'monster', 'wall'] 
 bottom_floor = ['wall', 'boss', 'laser_gun', 'empty', 'wall'] 
-
-cmds = ['u','r','l','c','d']
+#this is the list of commands so if the choice doesnt = one of these it will re ask for another input because the input they gave was invalid
+cmds = ['u','r','l','bag','d']
 
 player_bag = []
 
@@ -29,7 +33,7 @@ while user_ready == 'y':
     elif current_floor == 1: floor = floor1
     else: floor = bottom_floor
     room = floor[current_room]
-    print(f"Floor: {current_floor} - Room: {floor[current_room]}")
+    #print(f"Floor: {current_floor} - Room: {floor[current_room]}")
    #this is checking to see which room the player has encountered 
     if room == 'empty': print('You are in an empty room.')
     if room == 'wall': print("You've hit a wall")
@@ -41,11 +45,12 @@ while user_ready == 'y':
           print('You have killed the minion of the boss alien joe!!!')
           floor0[3] = 'empty'
         elif 'laser_gun' not in player_bag:
-          print('RIP you dont have a laser gun')
+          print(f'R.I.P long live {username}')
           break
       else:
           print('You cant run fast enough you should of tried to fight instead.')
           break
+    #this adds the laser_gun to the players_bag amd replaces it with an empty      
     if floor[current_room] == "laser_gun":
       if 'laser_gun' in player_bag: pass
       else:
@@ -54,10 +59,10 @@ while user_ready == 'y':
           floor[current_room] = 'empty'
           player_bag.append('laser_gun')
           current_room -= 1
-        else: print('nigger why not')
+        else: print('Your lost lol.....')
     if room == 'boss': 
       attack = input('Fight JOE? (y)es - (n)o\n')
-      if attack == 'f':
+      if attack == 'y':
         #this is checking if the player has a weapon in their bag to fight and if the player doesnt it kills them
         if 'laser_gun' in player_bag:
           print('You have killed the boss alien joe!!!')
@@ -67,16 +72,17 @@ while user_ready == 'y':
           break
         elif attack == "r":
           print('Are you crazy why would you think the boss JOE would let you run!!!!')
+          print(f'Long live {username}')
+          break
    # player controls 
-    if choice not in cmds: print("Invalid option")
+    if choice not in cmds: print("Invalid option type help if you need the list of movements that are allowed")
     else:
       if choice == "u": current_floor += 1 
       if choice == 'r': current_room += 1
       if choice == 'd': current_floor -= 1 
       if choice == 'l': current_room -= 1
-      if choice == 'c': print(f"Current inventory: {player_bag}")
+      if choice == 'bag': print(f"Current inventory: {player_bag}")
   # passes index error so you dont have extra code checking if its out of range
- #it allows me to break the loop with control c
   except KeyboardInterrupt: break
   except IndexError: pass
   except: pass
