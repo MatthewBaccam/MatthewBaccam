@@ -1,0 +1,90 @@
+from random import randrange
+
+print('Hello this is the number generator guessing game')
+print('Which mode would you like to play\n1)Guessing 1-5\n2)Guessing 1-10\n3}1-50\n4}1-100\n5)1-1000 the big challenge')
+user_choice = int(input('So which one would you like to choose. '))
+
+if user_choice == 1:
+	answer = randrange(5)
+	#hits variable is to just have a while loop becuase i couldnt figures out what else to do	
+	answer_correct = 0
+	while answer_correct == 0:	
+		print(answer)
+		user_guess = int(input('Take a guess... '))
+		if user_guess > answer:
+			print('Too high.')
+		elif user_guess < answer:
+			print('Too low.')
+		elif user_guess == answer:
+			print('Nice job you got the right number!!!')
+			break		
+		elif user_guess > 5:
+			print('Um... I thought it was only supposed 1 - 5 :|')
+
+elif user_choice == 2:
+	answer = randrange(10)
+	#hits variable is to just have a while loop becuase i couldnt figures out what else to do	
+	answer_correct = 0
+	while answer_correct == 0:	
+		print(answer)
+		user_guess = int(input('Take a guess... '))
+		if user_guess > answer:
+			print('Too high.')
+		elif user_guess < answer:
+			print('Too low.')
+		elif user_guess == answer:
+			print('Nice job you got the right number!!!')
+			break		
+		elif user_guess > 10:
+			print('Um... I thought it was only supposed 1 - 10 :|')	
+
+elif user_choice == 3:
+	answer = randrange(50)
+	#hits variable is to just have a while loop becuase i couldnt figures out what else to do	
+	answer_correct = 0
+	while answer_correct == 0:	
+		print(answer)
+		user_guess = int(input('Take a guess... '))
+		if user_guess > answer:
+			print('Too high.')
+		elif user_guess < answer:
+			print('Too low.')
+		elif user_guess == answer:
+			print('Nice job you got the right number!!!')
+			break		
+		elif user_guess > 10:
+			print('Um... I thought it was only supposed 1 - 50 :|')	
+
+elif user_choice == 4:
+	answer = randrange(100)
+	#hits variable is to just have a while loop becuase i couldnt figures out what else to do	
+	answer_correct = 0
+	while answer_correct == 0:	
+		print(answer)
+		user_guess = int(input('Take a guess... '))
+		if user_guess > answer:
+			print('Too high.')
+		elif user_guess < answer:
+			print('Too low.')
+		elif user_guess == answer:
+			print('Nice job you got the right number!!!')
+			break		
+		elif user_guess > 10:
+			print('Um... I thought it was only supposed 1 - 100 :|')	
+
+elif user_choice == 5:
+	answer = randrange(1000)
+	#hits variable is to just have a while loop becuase i couldnt figures out what else to do	
+	answer_correct = 0
+	while answer_correct == 0:	
+		print(answer)
+		user_guess = int(input('Take a guess... '))
+		if user_guess > answer:
+			print('Too high.')
+		elif user_guess < answer:
+			print('Too low.')
+		elif user_guess == answer:
+			print('Nice job you got the right number!!!')
+			break		
+		elif user_guess > 10:
+			print('Um... I thought it was only supposed 1 - 1000 :|')
