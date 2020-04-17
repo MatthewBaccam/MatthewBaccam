@@ -1,0 +1,56 @@
+from getpass import getpass
+
+#this is the part that the user clarifies if it has an account or not
+print('Welcome to the Matthew login project you can store your passwords and stuff like that in here')
+user_account_checker = input('Do you already have an account? (y)es or (n)o ')
+
+#This is the part where the program either logs the user in or the user creates an account because it doesnt already have one
+if user_account_checker == 'y':   
+#these are so the code can repeat if the username and password is not found
+    username_checker = True
+    password_checker = True
+    print('Okay since you already have an account please enter the info down below')
+    while username_checker and password_checker:
+        username = input('Username: ')
+        password = getpass('Password: ')
+ #checks if the username is in the username txt file       
+        with open('usernames.txt', 'r') as username_check:
+            if username in open('usernames.txt').read():
+                username_checker = False
+            else:
+                print('Username not found')
+#checks if the password is in the password txt file
+        with open('passwords.txt', 'r') as password_check:
+            if password in open('passwords.txt').read():
+                password_checker= False
+            else:
+                print('Password not found')  
+    print('You have been logged in')       
+#This is where the user creates a password and username for a new account
+elif user_account_checker == 'n':
+#These variables are here so the program can loop if the username already exists and if the passwords dont match  
+    username_checker = True
+    password_checker = True
+#where I create my username    
+    while username_checker:
+            create_username = input('Whats the username of choice: ')
+        #This is where i write the username to the txt file thats names usernames.txt        
+            with open('usernames.txt', 'a+') as username_saver:
+                if create_username in open('usernames.txt').read():
+                    print('Username is already taken choose another one')
+                else:
+                    username_saver.write(f'\n{create_username}\n')
+                    print('Username added') 
+                    username_checker = False              
+#Where I create the users password
+    while password_checker:
+        create_password = input("Whats the password of choice (make sure its strong): ")
+        confirm_password = input('Repeat the password: ')
+        if create_password == confirm_password:
+            with open('passwords.txt', 'a+') as save_password:
+                save_password.write(f'\n{create_password}\n')
+                print('Passwords added')
+                password_checker = False 
+        else:
+            print('They dont match')
+    print('Restart the program to use your new account info')
